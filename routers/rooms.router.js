@@ -1,5 +1,4 @@
 const RoomsController = require("../controller/rooms.controller");
-const getRoomsModel = require("../models/rooms.model");
 const router = require("express").Router();
 
 router.get("/", RoomsController.getRooms);

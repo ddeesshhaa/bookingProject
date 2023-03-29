@@ -36,6 +36,6 @@ exports.saveRoom = async (roomName, roomId, extras, image, roomCap, view) => {
     view: view,
   };
   await mongoose.connect(DB_URL);
-  await room.create(data);
+  await Room.create(data);
   await mongoose.disconnect();
 };

@@ -1,11 +1,8 @@
 const roomsModel = require("../models/rooms.model");
 
-exports.getRooms = (req, res, next) => {
-  roomsModel.getAllRooms().then((room) => {
-    res.render("Rooms", {
-      rooms: room,
-    });
-  });
+exports.getRooms = async (req, res, next) => {
+  let rooms = await roomsModel.getAllRooms();
+  await res.render("Rooms", { rooms: rooms });
 };
 
 exports.roomsAPI = (req, res, next) => {
@@ -15,7 +12,7 @@ exports.roomsAPI = (req, res, next) => {
 };
 
 exports.addRoom = (req, res, next) => {
-  getRoomsModel.saveRoom(
+  roomsModel.saveRoom(
     req.params.roomName,
     req.params.roomId,
     req.params.extras,
